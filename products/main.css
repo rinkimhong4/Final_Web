@@ -1,8 +1,3 @@
-Enhanced Header nav.navbar {
-  background: linear-gradient(90deg, #1e3c72, #2a5298); /* Gradient */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 #tit {
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
@@ -45,12 +40,12 @@ Enhanced Header nav.navbar {
 
 /* Total Box */
 #total {
-  font-size: 1.1rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  background-color: #28a745;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #007bff;
   color: white;
-  font-weight: 600;
+  font-weight: 5r00;
   display: inline-block;
 }
 
@@ -65,7 +60,7 @@ Enhanced Header nav.navbar {
 }
 
 .btn-success:hover {
-  background-color: #218838;
+  background-color: #007bff;
 }
 
 .btn-danger:hover {
