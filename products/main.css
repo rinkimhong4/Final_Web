@@ -1,8 +1,10 @@
+/* Title Styling */
 #tit {
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.5px;
+  margin-bottom: 1rem;
 }
 
 /* Form Card Styling */
@@ -10,6 +12,7 @@
   border-radius: 12px;
   background: #ffffff;
   transition: transform 0.2s ease-in-out;
+  padding: 1.5rem; /* Added padding for cleaner form layout */
 }
 
 .card:hover {
@@ -45,7 +48,7 @@
   border-radius: 4px;
   background-color: #007bff;
   color: white;
-  font-weight: 5r00;
+  font-weight: 500; /* Fixed typo from 5r00 to 500 */
   display: inline-block;
 }
 
@@ -57,6 +60,7 @@
   border-radius: 8px;
   text-transform: uppercase;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* Added for better UX */
 }
 
 .btn-success:hover {
@@ -87,6 +91,10 @@
 
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e0e0e0; /* Optional row hover effect */
 }
 
 /* Footer */
