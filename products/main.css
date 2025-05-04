@@ -94,12 +94,35 @@ footer {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
 }
-@media (max-width: 576px) {
-  .form-buttons {
-    flex-direction: column;
+
+/* Animations */
+.animate-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .form-buttons button {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .navbar-brand img {
+    width: 25px;
+  }
+
+  .form-buttons .btn {
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  .table {
+    font-size: 0.9rem;
   }
 }

@@ -1,27 +1,29 @@
-let title = document.getElementById("title");
-let price = document.getElementById("price");
-let taxes = document.getElementById("taxes");
-let discount = document.getElementById("discount");
-let qrImageUrl = document.getElementById("qrImageUrl");
-let total = document.getElementById("total");
-let count = document.getElementById("count");
-let category = document.getElementById("category");
-let btnCancel = document.getElementById("btnCancel");
-let btnAdd = document.getElementById("btnAdd");
 let shirtForm = document.getElementById("shirtForm");
+let titleInput = document.getElementById("title");
+let priceInput = document.getElementById("price");
+let taxesInput = document.getElementById("taxes");
+let discountInput = document.getElementById("discount");
+let qrImageUrlInput = document.getElementById("qrImageUrl");
+let countInput = document.getElementById("count");
+let categoryInput = document.getElementById("category");
+let totalSpan = document.getElementById("total");
+let brandInput = document.getElementById("brand");
+
 let tbody = document.getElementById("tbody");
 
-console.log(
-  title,
-  price,
-  taxes,
-  discount,
-  qrImageUrl,
-  total,
-  count,
-  category,
-  btnCancel,
-  btnAdd,
-  shirtForm,
-  tbody
-);
+let btnAdd = document.getElementById("btnAdd");
+let btnCancel = document.getElementById("btnCancel");
+
+let editModal = new bootstrap.Modal(document.getElementById("editModal"));
+let editForm = document.getElementById("editForm");
+let editIdInput = document.getElementById("editId");
+let editTitleInput = document.getElementById("editTitle");
+let editPriceInput = document.getElementById("editPrice");
+let editDiscountInput = document.getElementById("editDiscount");
+let editCountInput = document.getElementById("editCount");
+let editCategoryInput = document.getElementById("editCategory");
+let editQrImageUrlInput = document.getElementById("editQrImageUrl");
+let btnSaveEdit = document.getElementById("btnSaveEdit");
+
+let successToast = new bootstrap.Toast(document.getElementById("successToast"));
+let errorToast = new bootstrap.Toast(document.getElementById("errorToast"));
