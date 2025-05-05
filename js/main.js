@@ -122,3 +122,144 @@ let renderTable = () => {
     tbody.appendChild(row);
   });
 };
+
+// Event handlers validated
+let handleSubmit = (e) => {
+  e.preventDefault();
+  if (!shirtForm.checkValidity()) {
+    shirtForm.classList.add("was-validated");
+    return;
+  }
+
+  if (inputs.qrImageUrl.value && !validateUrl(inputs.qrImageUrl.value)) {
+    showToast("error", "Please enter a valid Image URL");
+    return;
+  }
+
+  try {
+    let shirtItem = {
+      title: inputs.title.value.trim(),
+      price: parseFloat(inputs.price.value).toFixed(2),
+      taxes: parseFloat(inputs.taxes.value).toFixed(2),
+      discount: parseFloat(inputs.discount.value) || 0,
+      qrImageUrl: inputs.qrImageUrl.value,
+      count: parseInt(inputs.count.value),
+      category: inputs.category.value.trim(),
+      brand: inputs.brand.value.trim(),
+      total: (
+        parseFloat(inputs.price.value) +
+        parseFloat(inputs.taxes.value) -
+        (parseFloat(inputs.price.value) *
+          (parseFloat(inputs.discount.value) || 0)) /
+          100
+      ).toFixed(2),
+    };
+
+    data.push(shirtItem);
+    localStorage.setItem("product_list", JSON.stringify(data));
+    renderTable();
+    clearForm();
+  } catch (error) {
+    showToast("error", "An error occurred while adding the shirt");
+    console.error("Add shirt error:", error);
+  }
+};
+// text fields when edit , controller => edit product
+let handleEdit = (index) => {
+  let item = data[index];
+  editInputs.id.value = index;
+  editInputs.title.value = item.title;
+  editInputs.price.value = item.price;
+  editInputs.discount.value = item.discount;
+  editInputs.count.value = item.count;
+  editInputs.category.value = item.category;
+  editInputs.brand.value = item.brand;
+  editInputs.qrImageUrl.value = item.qrImageUrl;
+  $("#editModal").modal("show");
+};
+
+// calculate when edit product
+let handleSaveEdit = () => {
+  if (!editForm.checkValidity()) {
+    editForm.classList.add("was-validated");
+    return;
+  }
+
+  if (
+    editInputs.qrImageUrl.value &&
+    !validateUrl(editInputs.qrImageUrl.value)
+  ) {
+    showToast("error", "Please enter a valid Image URL");
+    return;
+  }
+
+  try {
+    let index = parseInt(editInputs.id.value);
+    data[index] = {
+      title: editInputs.title.value.trim(),
+      price: parseFloat(editInputs.price.value).toFixed(2),
+      taxes: (parseFloat(editInputs.price.value) * 0.1).toFixed(2),
+      discount: parseFloat(editInputs.discount.value) || 0,
+      qrImageUrl: editInputs.qrImageUrl.value,
+      count: parseInt(editInputs.count.value),
+      category: editInputs.category.value.trim(),
+      brand: editInputs.brand.value.trim(),
+      total: (
+        parseFloat(editInputs.price.value) +
+        parseFloat(editInputs.price.value) * 0.1 -
+        (parseFloat(editInputs.price.value) *
+          (parseFloat(editInputs.discount.value) || 0)) /
+          100
+      ).toFixed(2),
+    };
+
+    localStorage.setItem("product_list", JSON.stringify(data));
+    renderTable();
+    $("#editModal").modal("hide");
+    editForm.classList.remove("was-validated");
+  } catch (error) {
+    showToast("error", "An error occurred while updating the shirt");
+    console.error("Update shirt error:", error);
+  }
+};
+
+// delete product
+function handleDelete(index) {
+  Swal.fire({
+    icon: "question",
+    title: "Do you want to delete ?",
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: "Delete",
+    denyButtonText: `Cancel`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      try {
+        data.splice(index, 1);
+        localStorage.setItem("product_list", JSON.stringify(data));
+        renderTable();
+      } catch (error) {
+        showToast("error", "An error occurred while deleting the shirt");
+        console.error("Delete shirt error:", error);
+      }
+    }
+  });
+}
+// Event listener
+inputs.price.addEventListener("input", calculateTaxesAndTotal);
+inputs.discount.addEventListener("input", calculateTaxesAndTotal);
+shirtForm.addEventListener("submit", handleSubmit);
+buttons.cancel.addEventListener("click", clearForm);
+buttons.saveEdit.addEventListener("click", handleSaveEdit);
+
+// Event  for table buttons
+tbody.addEventListener("click", (e) => {
+  let index = e.target.dataset.index;
+  if (e.target.classList.contains("edit-btn")) {
+    handleEdit(index);
+  } else if (e.target.classList.contains("delete-btn")) {
+    handleDelete(index);
+  }
+});
+
+renderTable();
