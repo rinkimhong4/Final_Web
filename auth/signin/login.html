@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="/style/bootstrap.css" />
+    <link rel="icon" href="/image/logo/logo.jpeg" />
+  </head>
+  <body class="bg-light">
+    <div class="container-fluid h-100">
+      <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-md-6 d-none d-md-block text-center">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid"
+            alt="Login illustration"
+          />
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="text-center mb-4">Sign In</h3>
+
+              <div class="text-center mb-3">
+                <p class="text-muted">or use your email account</p>
+              </div>
+
+              <!-- Login Form -->
+              <form>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                  Log In
+                </button>
+              </form>
+
+              <div class="text-center mt-3">
+                <p>
+                  Don't have an account?
+                  <a href="/auth/signup/signup.html">Sign up</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="signin.js"></script>
+</html>

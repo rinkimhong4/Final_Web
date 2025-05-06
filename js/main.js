@@ -75,7 +75,6 @@ let clearForm = () => {
   shirtForm.classList.remove("was-validated");
 };
 
-// Function to validate image url
 let validateUrl = (url) => {
   try {
     new URL(url);
@@ -223,15 +222,15 @@ let handleSaveEdit = () => {
   }
 };
 
-// delete product
 function handleDelete(index) {
   Swal.fire({
-    icon: "question",
-    title: "Do you want to delete ?",
-    showDenyButton: false,
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
     showCancelButton: true,
-    confirmButtonText: "Delete",
-    denyButtonText: `Cancel`,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
       try {
@@ -245,6 +244,7 @@ function handleDelete(index) {
     }
   });
 }
+
 // Event listener
 inputs.price.addEventListener("input", calculateTaxesAndTotal);
 inputs.discount.addEventListener("input", calculateTaxesAndTotal);
