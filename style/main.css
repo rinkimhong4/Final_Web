@@ -1,0 +1,250 @@
+body {
+  background-color: #eee;
+  font-family: "Open Sans", sans-serif;
+}
+.container-fluid {
+  margin-top: 70px;
+}
+.card {
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s;
+}
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 133.33%;
+}
+.thumbnail-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.discount {
+  background-color: red;
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  color: #fff;
+}
+.wishlist {
+  height: 32px;
+  width: 32px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0);
+}
+.wishlist:hover {
+  background-color: #ddd;
+}
+.first {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+}
+.dress-name {
+  font-size: 15px;
+  font-weight: bold;
+  width: 75%;
+}
+.new-price {
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
+}
+.old-price {
+  font-size: 11px;
+  color: grey;
+}
+.btn.color-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 0;
+}
+.color-btn:focus {
+  outline: 2px solid #007bff;
+}
+.creme {
+  background-color: #fff;
+  border: 2px solid grey;
+}
+.creme.active {
+  background-color: grey;
+}
+.red {
+  background-color: #fff;
+  border: 2px solid red;
+}
+.red.active {
+  background-color: red;
+}
+.blue {
+  background-color: #fff;
+  border: 2px solid #40c4ff;
+}
+.blue.active {
+  background-color: #40c4ff;
+}
+.item-size {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid grey;
+  color: grey;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.item-size.active {
+  background-color: grey;
+  color: #fff;
+}
+.item-size:focus {
+  outline: 2px solid #007bff;
+}
+.rating-star {
+  font-size: 12px;
+}
+.rating-number {
+  font-size: 12px;
+  color: grey;
+}
+.quantity-selector {
+  display: flex;
+  align-items: center;
+}
+.quantity-selector .btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 14px;
+}
+.quantity-selector .quantity {
+  width: 40px;
+  text-align: center;
+  font-size: 14px;
+  margin: 0 5px;
+}
+.modal-xl {
+  max-width: 90%;
+}
+.modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.cart-table .img-sm {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+.cart-table .itemside .info {
+  padding-left: 10px;
+}
+.cart-table .price-wrap {
+  line-height: 1.2;
+}
+.cart-table .price {
+  font-weight: bold;
+  display: block;
+}
+.cart-table .btn-light {
+  color: #fff;
+  background-color: #f44336;
+  font-size: 11px;
+  padding: 5px 10px;
+}
+.cart-table .btn-light:hover {
+  background-color: #d32f2f;
+}
+.cart-table .form-control {
+  width: 80px;
+}
+.cart-summary .dlist-align {
+  display: flex;
+  margin-bottom: 5px;
+}
+.cart-summary .btn-main {
+  font-size: 14px;
+  padding: 8px 15px;
+  color: #fff;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.cart-summary .btn-primary {
+  background-color: #007bff;
+}
+.cart-summary .btn-success {
+  background-color: #28a745;
+}
+.stock-warning {
+  color: #f44336;
+  font-size: 12px;
+}
+@media (max-width: 576px) {
+  .container-fluid {
+    margin-top: 50px;
+  }
+  .image-container {
+    padding-bottom: 100%;
+  }
+  .dress-name,
+  .new-price {
+    font-size: 13px;
+  }
+  .old-price {
+    font-size: 10px;
+  }
+  .discount {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+  .wishlist {
+    height: 28px;
+    width: 28px;
+  }
+  .btn.color-btn {
+    width: 18px;
+    height: 18px;
+  }
+  .item-size {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+  .quantity-selector .btn {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+  .quantity-selector .quantity {
+    width: 35px;
+    font-size: 12px;
+  }
+  .modal-xl {
+    max-width: 95%;
+  }
+  .cart-table .img-sm {
+    width: 50px;
+    height: 50px;
+  }
+  .cart-table .form-control {
+    width: 60px;
+  }
+}
