@@ -1,27 +1,34 @@
+/* Custom styles for Shirt Shop */
 body {
+  font-family: "Poppins", "Open Sans", sans-serif;
   background-color: #eee;
-  font-family: "Open Sans", sans-serif;
 }
-.container-fluid {
-  margin-top: 70px;
+
+.navbar {
+  transition: all 0.3s ease;
 }
+
 .card {
   background-color: #fff;
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-}
-.card:hover {
-  transform: translateY(-5px);
   transition: transform 0.2s;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
 .image-container {
   position: relative;
   width: 100%;
   padding-bottom: 133.33%;
 }
-.thumbnail-image {
+
+.thumbnail-image,
+.card-img-top {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,6 +37,7 @@ body {
   object-fit: cover;
   border-radius: 10px;
 }
+
 .discount {
   background-color: red;
   padding: 3px 8px;
@@ -37,6 +45,7 @@ body {
   border-radius: 6px;
   color: #fff;
 }
+
 .wishlist {
   height: 32px;
   width: 32px;
@@ -45,60 +54,74 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .wishlist:hover {
   background-color: #ddd;
 }
+
 .first {
   position: absolute;
   width: 100%;
   padding: 10px;
 }
+
 .dress-name {
   font-size: 15px;
   font-weight: bold;
   width: 75%;
 }
+
 .new-price {
   font-size: 15px;
   font-weight: bold;
   color: red;
 }
+
 .old-price {
   font-size: 11px;
   color: grey;
 }
+
 .btn.color-btn {
   width: 20px;
   height: 20px;
   border-radius: 50%;
   padding: 0;
 }
+
 .color-btn:focus {
   outline: 2px solid #007bff;
 }
-.creme {
+
+.color-btn.creme {
   background-color: #fff;
   border: 2px solid grey;
 }
-.creme.active {
+
+.color-btn.creme.active {
   background-color: grey;
 }
-.red {
+
+.color-btn.red {
   background-color: #fff;
   border: 2px solid red;
 }
-.red.active {
+
+.color-btn.red.active {
   background-color: red;
 }
-.blue {
+
+.color-btn.blue {
   background-color: #fff;
   border: 2px solid #40c4ff;
 }
-.blue.active {
+
+.color-btn.blue.active {
   background-color: #40c4ff;
 }
+
 .item-size {
   width: 22px;
   height: 22px;
@@ -112,74 +135,93 @@ body {
   align-items: center;
   cursor: pointer;
 }
+
 .item-size.active {
   background-color: grey;
   color: #fff;
 }
+
 .item-size:focus {
   outline: 2px solid #007bff;
 }
+
 .rating-star {
   font-size: 12px;
 }
+
 .rating-number {
   font-size: 12px;
   color: grey;
 }
+
 .quantity-selector {
   display: flex;
   align-items: center;
 }
+
 .quantity-selector .btn {
   width: 30px;
   height: 30px;
   padding: 0;
   font-size: 14px;
 }
+
 .quantity-selector .quantity {
   width: 40px;
   text-align: center;
   font-size: 14px;
   margin: 0 5px;
 }
+
 .modal-xl {
   max-width: 90%;
 }
+
 .modal-body {
   max-height: 70vh;
   overflow-y: auto;
 }
+
 .cart-table .img-sm {
   width: 60px;
   height: 60px;
   object-fit: cover;
+  border-radius: 5px;
 }
+
 .cart-table .itemside .info {
   padding-left: 10px;
 }
+
 .cart-table .price-wrap {
   line-height: 1.2;
 }
+
 .cart-table .price {
   font-weight: bold;
   display: block;
 }
+
 .cart-table .btn-light {
   color: #fff;
   background-color: #f44336;
   font-size: 11px;
   padding: 5px 10px;
 }
+
 .cart-table .btn-light:hover {
   background-color: #d32f2f;
 }
+
 .cart-table .form-control {
   width: 80px;
 }
+
 .cart-summary .dlist-align {
   display: flex;
   margin-bottom: 5px;
 }
+
 .cart-summary .btn-main {
   font-size: 14px;
   padding: 8px 15px;
@@ -187,20 +229,25 @@ body {
   width: 100%;
   margin-bottom: 10px;
 }
+
 .cart-summary .btn-primary {
   background-color: #007bff;
 }
+
 .cart-summary .btn-success {
   background-color: #28a745;
 }
+
 .stock-warning {
   color: #f44336;
   font-size: 12px;
 }
+
+footer a:hover {
+  text-decoration: none;
+}
+
 @media (max-width: 576px) {
-  .container-fluid {
-    margin-top: 50px;
-  }
   .image-container {
     padding-bottom: 100%;
   }
