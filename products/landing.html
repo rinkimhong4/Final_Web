@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shop high-quality, stylish T-shirts at T-Shirt Shop. Discover unique designs and sustainable apparel."
+    />
+    <meta
+      name="keywords"
+      content="T-shirts, apparel, fashion, clothing, sustainable fashion"
+    />
+    <meta name="author" content="T-Shirt Shop" />
+    <title>T-Shirt Shop - Stylish & Sustainable Apparel</title>
+    <link rel="icon" href="/image/logo/logo.webp" type="image/webp" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Custom styles for T-Shirt Shop */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://images.unsplash.com/photo-1551854716-8b9922de3618")
+            center/cover no-repeat;
+        padding: 6rem 0;
+        color: white;
+        text-align: center;
+      }
+
+      .section-padding {
+        padding: 4rem 0;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-card img {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+      }
+
+      .feature-caption {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0.5rem;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .product-card {
+        position: relative;
+        border-radius: 1rem;
+        overflow: hidden;
+        background: white;
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: scale(1.02);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 16rem;
+        object-fit: cover;
+      }
+
+      .product-card .price {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #ef4444;
+      }
+
+      .product-card .original-price {
+        font-size: 1rem;
+        color: #6b7280;
+        text-decoration: line-through;
+        margin-left: 0.5rem;
+      }
+
+      .product-card .rating {
+        font-size: 1rem;
+        color: #f59e0b;
+      }
+
+      .product-card .color-option {
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px solid #e5e7eb;
+      }
+
+      .product-card .size-option {
+        border: 1px solid #d1d5db;
+        border-radius: 0.25rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.9rem;
+        background: #f3f4f6;
+        transition: background-color 0.3s;
+      }
+
+      .product-card .size-option:hover {
+        background: #e5e7eb;
+      }
+
+      .product-card .quantity-selector {
+        display: flex;
+        align-items: center;
+        border: 1px solid #d1d5db;
+        border-radius: 0.25rem;
+        width: fit-content;
+      }
+
+      .product-card .quantity-selector button {
+        background: #f3f4f6;
+        border: none;
+        padding: 0.25rem 0.75rem;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      .product-card .quantity-selector button:hover {
+        background: #e5e7eb;
+      }
+
+      .product-card .quantity-selector span {
+        padding: 0.25rem 0.75rem;
+        font-size: 1rem;
+        border-left: 1px solid #d1d5db;
+        border-right: 1px solid #d1d5db;
+      }
+
+      .product-card .favorite-icon {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 1.5rem;
+        color: #ef4444;
+        background: white;
+        border-radius: 50%;
+        padding: 0.25rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+
+      .product-card .favorite-icon.active {
+        color: #b91c1c;
+      }
+    </style>
+  </head>
+  <body class="font-poppins bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky-top" aria-label="Main navigation">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a class="flex items-center space-x-2" href="#home">
+          <img
+            src="/image/logo/logo.webp"
+            alt="T-Shirt Shop Logo"
+            class="h-10"
+          />
+          <span class="text-xl font-semibold text-gray-800">T-Shirt Shop</span>
+        </a>
+        <button
+          class="md:hidden text-gray-600"
+          type="button"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          onclick="toggleMenu()"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="hidden md:flex space-x-6" id="navbarNav">
+          <a class="text-gray-600 hover:text-blue-500" href="#home">Home</a>
+          <a class="text-gray-600 hover:text-blue-500" href="#about">About</a>
+          <a class="text-gray-600 hover:text-blue-500" href="#features"
+            >Features</a
+          >
+          <a class="text-gray-600 hover:text-blue-500" href="#shop">Shop</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden bg-white shadow-md" id="mobileMenu">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-2">
+        <a class="text-gray-600 hover:text-blue-500" href="#home">Home</a>
+        <a class="text-gray-600 hover:text-blue-500" href="#about">About</a>
+        <a class="text-gray-600 hover:text-blue-500" href="#features"
+          >Features</a
+        >
+        <a class="text-gray-600 hover:text-blue-500" href="#shop">Shop</a>
+      </div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-semibold text-white mb-4">
+          Welcome to T-Shirt Shop
+        </h1>
+        <p class="text-lg md:text-xl text-white mb-6">
+          Discover our unique and stylish T-shirt collection!
+        </p>
+        <a
+          href="#shop"
+          class="btn bg-blue-500 text-white rounded-full px-6 py-3 hover:bg-blue-600"
+          >Shop Now</a
+        >
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center text-3xl font-semibold mb-6">About Us</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <p class="text-gray-600">
+            We are passionate about creating high-quality, comfortable, and
+            trendy T-shirts that let you express your style. Our designs are
+            inspired by modern culture and crafted with care to ensure
+            durability and comfort.
+          </p>
+          <p class="text-gray-600">
+            Founded in 2025, T-Shirt Shop aims to bring unique apparel to
+            everyone, with a focus on sustainability and customer satisfaction.
+            Join us in wearing your personality!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding bg-gray-800 text-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center text-3xl font-semibold mb-4">
+          Our Unique Features
+        </h2>
+        <p class="text-center text-gray-400 mb-8">
+          Explore what makes our T-Shirt Shop special. From exclusive designs to
+          a seamless shopping experience.
+        </p>
+        <div class="flex overflow-x-auto gap-4 pb-4">
+          <div class="feature-card flex-shrink-0 w-72">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+              alt="Custom Designs"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="feature-caption">Custom Designs</div>
+          </div>
+          <div class="feature-card flex-shrink-0 w-72">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+              alt="Sustainable Materials"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="feature-caption">Sustainable Materials</div>
+          </div>
+          <div class="feature-card flex-shrink-0 w-72">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+              alt="Fast Shipping"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="feature-caption">Fast Shipping</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <h5 class="font-semibold text-lg">T-Shirt Shop</h5>
+            <p class="text-gray-400">
+              Quality shirts for every occasion. Shop now for the best deals!
+            </p>
+          </div>
+          <div>
+            <h5 class="font-semibold text-lg">Quick Links</h5>
+            <ul class="space-y-2">
+              <li>
+                <a href="#home" class="text-gray-400 hover:text-white">Home</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold text-lg">Contact Us</h5>
+            <p class="text-gray-400">
+              Email:
+              <a href="mailto:support@tshirtshop.com" class="hover:text-white"
+                >support@tshirtshop.com</a
+              ><br />
+              Phone:
+              <a href="tel:+85586240668" class="hover:text-white"
+                >(+855) 86-240-668</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="text-center mt-6 text-gray-400">
+          &copy; 2025 T-Shirt Shop. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
