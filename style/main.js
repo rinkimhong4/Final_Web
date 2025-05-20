@@ -375,6 +375,5 @@ function makePurchase() {
   $("#cartModal").modal("hide");
 }
 
-// Initial render
 showProducts();
 showCart();
